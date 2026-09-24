@@ -10,7 +10,7 @@ public:
             else if(nums[mid] == nums[mid + 1] && mid % 2 == 0) low = mid + 2;
             else if(nums[mid] == nums[mid - 1] && mid % 2 != 0) low = mid + 1;
             else if(nums[mid] == nums[mid + 1] && mid % 2 != 0) high = mid - 1;
-            else if(nums[mid] == nums[mid - 1] && mid % 2 == 0) high = mid - 1;
+            else if(nums[mid] == nums[mid - 1] && mid % 2 == 0) high = mid - 2;
         }
         return -1;
     }
