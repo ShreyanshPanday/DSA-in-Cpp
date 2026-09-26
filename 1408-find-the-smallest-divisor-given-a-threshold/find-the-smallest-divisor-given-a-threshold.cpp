@@ -1,6 +1,6 @@
 class Solution {
 private:
-    int sumOfDivisor(vector<int>& nums, int divisor, int threshold) {
+    int sumOfDivisor(const vector<int>& nums, int divisor, int threshold) {
         int sum = 0;
         for (int it : nums) {
             sum += (it + divisor - 1) / divisor;
