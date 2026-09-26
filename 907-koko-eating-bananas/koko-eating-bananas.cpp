@@ -3,7 +3,7 @@ private:
     int pileEaten(const vector<int>& piles, int mid, int h){
         int eaten = 0;
         for(int it : piles){
-            eaten += it / mid + (it % mid != 0);
+            eaten += (it + mid - 1) / mid;
             if(eaten > h) break;
         }
         return eaten;
