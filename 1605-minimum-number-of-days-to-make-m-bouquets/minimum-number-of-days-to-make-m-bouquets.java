@@ -1,15 +1,19 @@
 class Solution {
     private boolean possible(int[] bloomDay, int day, int m, int k){
-        int count = 0, bouquet = 0;
+        int count = 0, bouquets = 0;
         for(int i : bloomDay){
-            if(i <= day) count++;
-            else{
-                bouquet += (count / k);
-                count = 0;
-            }
+            if(i <= day){
+                count++;
+                if (count == k) {
+                    bouquets++;
+                    count = 0;
+                    if (bouquets >= m) {
+                        return true;
+                    }
+                }
+            }else count = 0;
         }
-        bouquet += (count / k);
-        return bouquet >= m;
+        return bouquets >= m;
     }
     public int minDays(int[] bloomDay, int m, int k) {
         if((long) m * k > bloomDay.length) return -1;
