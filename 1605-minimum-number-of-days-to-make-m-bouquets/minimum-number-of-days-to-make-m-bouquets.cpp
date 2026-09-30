@@ -3,13 +3,17 @@ private:
     bool possible(const vector<int>& bloomDay, int day, int m, int k){
         int count = 0, bouquets = 0;
         for(int i = 0; i < bloomDay.size(); i++){
-            if(bloomDay[i] <= day) count++;
-            else{
-                bouquets += (count / k);
-                count = 0;
-            }
+            if(bloomDay[i] <= day){
+                count++;
+                if (count == k) {
+                    bouquets++;
+                    count = 0;
+                    if (bouquets >= m) {
+                        return true;
+                    }
+                }
+            }else count = 0;
         }
-        bouquets += (count / k);
         return bouquets >= m;
     }
     
