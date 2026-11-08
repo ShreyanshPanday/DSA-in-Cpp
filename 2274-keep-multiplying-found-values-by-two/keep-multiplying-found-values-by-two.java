@@ -1,8 +1,10 @@
 class Solution {
+    private boolean contains(int[] nums, int original){
+        for(int i : nums) if(i == original) return true;
+        return false;
+    }
     public int findFinalValue(int[] nums, int original) {
-        Set<Integer> set = new HashSet <>();
-        for(int i : nums) set.add(i);
-        while(set.contains(original)) original *= 2;
+        while(contains(nums, original)) original *= 2;
         return original;
     }
 }
