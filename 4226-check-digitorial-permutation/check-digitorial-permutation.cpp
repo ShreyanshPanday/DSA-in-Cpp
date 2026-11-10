@@ -7,21 +7,20 @@ private:
 public:
     bool isDigitorialPermutation(int n) {
         if(n <= 0) return false;
-        vector<int> countN(10, 0);
+        vector<int> count(10, 0);
         int temp = n;
-        int totalFactorial = 0;
+        int totalFact = 0;
         while(temp > 0){
             int digit = temp % 10;
-            countN[digit]++;
-            totalFactorial += factorial(digit);
+            count[digit]++;
+            totalFact += factorial(digit);
             temp /= 10;            
         }
-        temp = totalFactorial;
-        vector<int> countFact(10, 0);
-        while(temp > 0){
-            countFact[temp % 10]++;
-            temp /= 10;
+        while(totalFact > 0){
+            count[totalFact % 10]--;
+            totalFact /= 10;
         }
-        return countN == countFact;
+        for(int i = 0; i < 10; i++) if(count[i] != 0) return false;
+        return true;
     }
 };
