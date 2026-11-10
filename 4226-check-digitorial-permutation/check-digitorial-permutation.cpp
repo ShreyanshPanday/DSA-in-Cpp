@@ -7,7 +7,7 @@ private:
 public:
     bool isDigitorialPermutation(int n) {
         if(n <= 0) return false;
-        vector<int> count(10, 0);
+        int count[10] = {0};
         int temp = n;
         int totalFact = 0;
         while(temp > 0){
