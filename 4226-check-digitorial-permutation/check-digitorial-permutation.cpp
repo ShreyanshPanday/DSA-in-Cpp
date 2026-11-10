@@ -1,9 +1,5 @@
 class Solution {
-private:
-    int factorial(int num){
-        static const int FACT[10] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
-        return FACT[num];
-    }
+static constexpr int FACT[10] = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
 public:
     bool isDigitorialPermutation(int n) {
         if(n <= 0) return false;
@@ -13,7 +9,7 @@ public:
         while(temp > 0){
             int digit = temp % 10;
             count[digit]++;
-            totalFact += factorial(digit);
+            totalFact += FACT[digit];
             temp /= 10;            
         }
         while(totalFact > 0){
